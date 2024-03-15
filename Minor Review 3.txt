@@ -1,0 +1,200 @@
+CHANGE DETECTION ON HYPERSPECTRAL IMAGERY
+1
+ Name
+USN
+Naveen Ballari
+01FE20BCS190
+Bharath A Koli
+01FE20BCS199
+Shravan Nayak
+01FE20BCS174
+Swaroop Madiwalar
+01FE21BCS424
+Team Number: S2
+
+Team Members:
+
+
+
+
+
+
+
+
+Guide : Ms. Indira Bidari
+1
+
+Contents
+2
+
+Introduction
+Problem Statement
+Objectives
+Dataset Details
+System design 
+Architecture Deployed 
+Result 
+
+
+2
+
+1.	Introduction
+
+3
+What are Remote Sensing Images?
+
+Remote sensing is the main data source of earth monitoring.
+
+Process of detecting and monitoring the physical characteristics of an area by measuring its reflected and emitted radiation at a distance.
+
+Remote sensing images are widely used in change detection process such as disaster assessment, urban planning, environment pollution monitoring  etc..
+
+3
+
+4
+Change detection technology makes it easier and faster to observe the world. Identifying differences in the  object or phenomenon by observing at different times.
+
+Automatic change detection takes sequential images of the same location as inputs and produces a binary map which marks the changes.
+
+
+What is Change Detection ?
+4
+
+5
+Semantic segmentation Change detection with U-net architecture on Hyperspectral Imagery
+     2.	Problem Statement
+5
+5
+
+3.	Objectives 
+
+6
+Apply pre-processing techniques to improve the relevant information of the image through reducing the noise and preserving the region of interest  of hyperspectral images.
+Apply semantic segmentation technique to label each pixel in the hyperspectral dataset. Which recognises a collection of pixels forming distinct categories in the image.
+To detect meaningful and accurate locations of change in  information from hyperspectral dataset.
+Extract information with least error possible and finally conclude changes occurred in hyperspectral images.
+
+
+6
+
+  4. Dataset details
+   Dataset Source / Features/ Generation : 
+
+Dataset is collected from Indian Pine Site 3 AVIRIS hyperspectral dataset
+Dataset consists of 145x145 pixels and 224 spectral reflectance bands in the wavelength range 0.4–2.5 10^(-6) meters.
+The Indian Pines scene contains two-thirds agriculture, and one-third forest or other natural perennial vegetation. 
+Dataset includes ground photos of several fields in mat format. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+							
+7
+Fig. a. Example of dataset
+7
+
+8
+   5. System Design
+Fig.b Represents the system design of the model. bitemporal images of the same place is fed into the system and feature maps of that images is created.
+These feature maps along with Ground truth is fed into change detection model and a final changed feature map is generated.
+
+Fig. b. System design
+8
+
+9
+9
+Standard U-Net Architecture
+standard U-Net architecture is designed based in the Convolutional Neural Network.
+It consists of expanding path and contracting path.
+The contracting path consists of many convolutional layers and a max pooling layer.
+the expanding path consists of upsampling blocks followed by convolutional blocks.
+standard U-Net architecture can be modified using by changing the number of layers to improve performance
+   6. Architecture Deployed
+Fig. c.Standard U-net architecture
+9
+
+10
+      Attention U-Net
+Attention U-Net improves U-Net by incorporating attention mechanism which allows model to focus more on important features.
+The Attention U-Net adds attention gates to the skip connections, which allow the model to selectively weigh the importance of the features being passed from the encoder to the decoder.
+The attention mechanism in Attention U-Net is added to the skip connections between the encoder and decoder networks. 
+Fig. d. Resnet architecture
+10
+
+11
+   7. Results
+   img 1.1
+   img 1.2
+Results from standard U-Net architecture
+   img 1.3
+Model
+Precision
+Recall
+F1_score
+Kappa
+Standard Unet
+0.847
+0.987
+0.911
+0.902
+Attention Unet
+0.885
+0.974
+0.927
+0.920
+As we observed, img 1.1 represents the actual ground truth of the input data
+image 1.2 is obtained by semantic segmentation of the images. 
+In the segmented images overlapped with ground truth to detect the actual change in the input image.
+
+
+11
+
+ """
+    Split the data into training, validation, and test sets.
+
+    Parameters:
+        -- X: array-like, shape (n_samples, n_features)
+            The feature data.
+        -- y: array-like, shape (n_samples,)
+            The target labels.
+        -- test_ratio: float, optional (default=0.1)
+            The proportion of samples to allocate to the test set.
+        -- validation_ratio: float, optional (default=0.1)
+            The proportion of samples to allocate to the validation set.
+
+    Returns:
+        -- X_train: array-like, shape (n_train_samples, n_features)
+            The feature data for the training set.
+        -- X_val: array-like, shape (n_val_samples, n_features)
+            The feature data for the validation set.
+        -- X_test: array-like, shape (n_test_samples, n_features)
+            The feature data for the test set.
+        -- y_train: array-like, shape (n_train_samples,)
+            The target labels for the training set.
+        -- y_val: array-like, shape (n_val_samples,)
+            The target labels for the validation set.
+        -- y_test: array-like, shape (n_test_samples,)
+            The target labels for the test set.
+    """
+
+12
+12
+
+ 
+TEAM S2
+13
+Thank
+ You!
