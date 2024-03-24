@@ -9,9 +9,6 @@ Identifying differences in the  object or phenomenon by observing at different t
 ### Remote Sensing Images: 
 The process of detecting and monitoring the physical characteristics of an area by measuring its reflected and emitted radiation at a distance. These are widely used in change detection process such as disaster assessment, urban planning, environment pollution monitoring  etc.
 
-## Problem Statement
-Semantic segmentation Change detection with U-net architecture on Hyperspectral Imagery
-
 ## Objectives 
 1. To apply pre-process dataset preserving the ROI of hyperspectral images.<br>
 2. To apply semantic segmentation technique to label each pixel in the hyperspectral images.<br>
